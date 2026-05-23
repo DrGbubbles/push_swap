@@ -67,7 +67,9 @@ int	main(int argc, char **argv)
 	int			*ptr;
 	main_stack	*stack_a;
 	main_stack	*stack_b;
+	char	*strategy;
 
+	strategy = "adaptive";
 	stack_a = malloc(sizeof(main_stack));
 	stack_b = malloc(sizeof(main_stack));
 	i = 1;
@@ -77,6 +79,11 @@ int	main(int argc, char **argv)
 	stack_b->tail = NULL;
 	if (argc > 1)
 	{
+		if (ft_strncmp(argv[1], "--", 2) == 0)
+			{
+				strategy = argv[1];
+				i++;
+			}
 		while (i < argc)
 		{
 			ptr = malloc(sizeof(int));
@@ -93,7 +100,18 @@ int	main(int argc, char **argv)
 		}
 	}
 	else
-		ft_printf("No Input!\n");
+		{
+			ft_printf("No Input!\n");
+			return (0);
+		}
+	if (ft_strncmp(strategy, "--simple", 8) == 0)
+        ft_printf("strategy is --> %s\n", strategy);
+    else if (ft_strncmp(strategy, "--complex", 9) == 0)
+        ft_printf("strategy is --> %s\n", strategy);
+    else if (ft_strncmp(strategy, "--medium", 8) == 0)
+        ft_printf("strategy is --> %s\n", strategy);
+    else
+        ft_printf("strategy is --> adaptive\n");
 	
 	// TESTING //
 		print_stack("STACK A : ", stack_a);
