@@ -90,7 +90,7 @@ int	main(int argc, char **argv)
 			*ptr = ft_atoi(argv[i]);
 			if (catch_duplicate(stack_a, *ptr) || !is_valid_int(argv[i]))
 			{
-				ft_putstr_fd("INVALID_INPUT\n", 2);
+				ft_putstr_fd("Error\n", 2);
 				ft_lstclear(&(stack_a->head), &free);
 				free(ptr);
 				return (0);
@@ -100,10 +100,7 @@ int	main(int argc, char **argv)
 		}
 	}
 	else
-		{
-			ft_printf("No Input!\n");
-			return (0);
-		}
+		return (0);
 	if (ft_strncmp(strategy, "--simple", 8) == 0)
         ft_printf("strategy is --> %s\n", strategy);
     else if (ft_strncmp(strategy, "--complex", 9) == 0)
