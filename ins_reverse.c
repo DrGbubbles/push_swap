@@ -1,0 +1,37 @@
+#include "push_swap.h"
+
+static void	reverse(main_stack *stack)
+{
+	t_list	*current;
+	t_list	*last;
+
+	if (!stack->head || stack->head == stack->tail)
+		return ;
+	current = stack->head;
+	while (current->next != stack->tail)
+		current = current->next;
+	last = stack->tail;
+	last->next = stack->head;
+	stack->head = last;
+	current->next = NULL;
+	stack->tail = current;
+}
+
+void	rra(main_stack *a)
+{
+	reverse(a);
+	ft_printf("rra\n");
+}
+
+void	rrb(main_stack *b)
+{
+	reverse(b);
+	ft_printf("rrb\n");
+}
+
+void	rrr(main_stack *a, main_stack *b)
+{
+	reverse(a);
+	reverse(b);
+	ft_printf("rrr\n");
+}
