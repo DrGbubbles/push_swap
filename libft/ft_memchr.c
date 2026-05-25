@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 14:58:01 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/04 14:58:12 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/25 14:19:56 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memchr(const void *ptr, int ch, size_t count)
 	unsigned char	*p;
 	unsigned char	uc;
 
-	p = (unsigned char *)ptr; 
+	p = (unsigned char *)ptr;
 	uc = (unsigned char)ch;
 	i = 0;
 	while (i < count)

@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 14:43:34 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/04 14:45:10 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/25 14:20:18 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc( size_t num, size_t size )
 {
 	void	*loc;
 
-	if (size > 0 && num > ((size_t) - 1) / size) 
+	if (size > 0 && num > ((size_t) - 1) / size)
 		return (NULL);
 	loc = malloc(num * size);
 	if (!loc)

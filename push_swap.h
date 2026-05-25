@@ -37,10 +37,7 @@ t_stack	*init_stack(void);
 int		error_exit(t_stack *a, t_stack *b);
 void	cleanup(t_stack *a, t_stack *b);
 int		parse_input(char **argv, int i, t_stack *a, t_stack *b);
-void	run_strategy(char *strategy,
-					int *bench,
-					t_stack *stack_a,
-					t_stack *stack_b
-					);
+void	run_strategy(char *strategy, int *bench,
+			t_stack *stack_a, t_stack *stack_b);
 char	*strategy_parser(char **argv, int *bench, int *start);
 #endif
