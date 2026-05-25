@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static void	push(main_stack *stack_A, main_stack *stack_B)
+static void	push(t_stack *stack_A, t_stack *stack_B)
 {
 	t_list	*node;
 
@@ -16,13 +16,13 @@ static void	push(main_stack *stack_A, main_stack *stack_B)
 		stack_B->tail = node;
 }
 
-void	pb(main_stack *a, main_stack *b)
+void	pb(t_stack *a, t_stack *b)
 {
 	push(a, b);
 	ft_printf("pb\n");
 }
 
-void	pa(main_stack *a, main_stack *b)
+void	pa(t_stack *a, t_stack *b)
 {
 	push(b, a);
 	ft_printf("pa\n");

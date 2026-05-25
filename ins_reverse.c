@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static void	reverse(main_stack *stack)
+static void	reverse(t_stack *stack)
 {
 	t_list	*current;
 	t_list	*last;
@@ -17,19 +17,19 @@ static void	reverse(main_stack *stack)
 	stack->tail = current;
 }
 
-void	rra(main_stack *a)
+void	rra(t_stack *a)
 {
 	reverse(a);
 	ft_printf("rra\n");
 }
 
-void	rrb(main_stack *b)
+void	rrb(t_stack *b)
 {
 	reverse(b);
 	ft_printf("rrb\n");
 }
 
-void	rrr(main_stack *a, main_stack *b)
+void	rrr(t_stack *a, t_stack *b)
 {
 	reverse(a);
 	reverse(b);

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static void	rotate(main_stack *stack)
+static void	rotate(t_stack *stack)
 {
 	t_list	*tmp;
 
@@ -13,19 +13,19 @@ static void	rotate(main_stack *stack)
 	stack->tail = tmp;
 }
 
-void	ra(main_stack *a)
+void	ra(t_stack *a)
 {
 	rotate(a);
 	ft_printf("ra\n");
 }
 
-void	rb(main_stack *b)
+void	rb(t_stack *b)
 {
 	rotate(b);
 	ft_printf("rb\n");
 }
 
-void	rr(main_stack *a, main_stack *b)
+void	rr(t_stack *a, t_stack *b)
 {
 	rotate(a);
 	rotate(b);
