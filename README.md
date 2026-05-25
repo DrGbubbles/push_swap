@@ -1,12 +1,14 @@
 # push_swap
 
+  ## Plan
 
-# Plan ? 
-- Phase 1: overall architecture - parsing input and populating stacks
-- Phase 2: building each individual action
-- Phase 3: building the algorithms
-- Phase 4: building the bonus - checker
-- Phase 5: looking at complexity testing
+| Phase | Focus Area | Key Concepts Covered | Status |
+| :--- | :--- | :--- | :---: |
+| **1** | parsing input | overall architecture - parsing input - populating stacks - handling input flags | 🟢 Done |
+| **2** | sorting algorithms | Implementing each algorithm | 🟡 In Progress  |
+| **3** | Testing | checking complexity with --bench / validating against the checker | To Do |
+| **4** | Bonus | Creating our own checker program | To Do |
+---
 
 # Bubble sort:
 
