@@ -1,0 +1,51 @@
+#include "push_swap.h"
+
+t_stack	*init_stack(void)
+{
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	stack->head = NULL;
+	stack->tail = NULL;
+	return (stack);
+}
+
+int	error_exit(t_stack *a, t_stack *b)
+{
+	ft_putstr_fd("Error\n", 2);
+	ft_lstclear(&(a->head), &free);
+	ft_lstclear(&(b->head), &free);
+	free(a);
+	free(b);
+	return (1);
+}
+
+void	cleanup(t_stack *a, t_stack *b)
+{
+	ft_lstclear(&(a->head), &free);
+	ft_lstclear(&(b->head), &free);
+	free(a);
+	free(b);
+}
+
+void	print_stack(char *stack_name, t_stack *stack)
+{
+	t_list	*tmp;
+
+	tmp = stack->head;
+	ft_printf("%s", stack_name);
+	while (tmp)
+	{
+		ft_printf("%d --> ", *(int *)tmp->content);
+		tmp = tmp->next;
+	}
+	ft_printf("NULL\n");
+}
+
+void	run_strategy(char *strategy, int *bench, t_stack *stack_a, t_stack *stack_b)
+{
+	// here we can pipe the algorithm to its corresponding file
+	ft_printf("Running strategy %s with bench --> %d using the following stacks\n", strategy, *bench);
+	print_stack("Stack A: ", stack_a);
+	print_stack("Stack B: ", stack_b);
+}
