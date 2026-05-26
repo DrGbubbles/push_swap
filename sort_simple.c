@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 22:11:12 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/26 19:43:00 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/26 19:47:22 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,36 +59,42 @@ static int	find_min_pos(t_list *lst, int min_num)
 	return (-1);
 }
 
-void	selection_sorting(t_stack *stack_a, t_stack *stack_b)
+void    selection_sorting(t_stack *stack_a, t_stack *stack_b)
 {
-	int	current_min;
-	int	i;
-	int	lst_size;
-	int	min_pos;
+	int current_min;
+	int i;
+	int original_size;
+	int current_size;
+	int min_pos;
 
-	i = 0;
-	lst_size = ft_lstsize(stack_a->head);
-	current_min = find_min(stack_a->head);
 	if (is_sorted(stack_a->head))
 		return ;
-	while (i != lst_size)
+
+	i = 0;
+	original_size = ft_lstsize(stack_a->head);
+	current_size = original_size;
+	current_min = find_min(stack_a->head);
+	
+	while (i < original_size)
 	{
 		if (*(int *)stack_a->head->content == current_min)
 		{
 			pb(stack_a, stack_b);
-			current_min = find_min(stack_a->head);
+			if (stack_a->head)
+				current_min = find_min(stack_a->head);
 			i++;
-			lst_size--;
+			current_size--;
 		}
 		else
 		{
 			min_pos = find_min_pos(stack_a->head, current_min);
-			if (min_pos > lst_size / 2)
+			if (min_pos > current_size / 2)
 				rra(stack_a);
 			else
 				ra(stack_a);
 		}
 	}
+	
 	while(stack_b->head)
 		pa(stack_a, stack_b);
 }
