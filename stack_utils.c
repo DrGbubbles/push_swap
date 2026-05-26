@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:17:27 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/25 14:17:31 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/26 18:46:20 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,6 @@ void	print_stack(char *stack_name, t_stack *stack)
 void	run_strategy(char *strategy, int *bench,
 		t_stack *stack_a, t_stack *stack_b)
 {
-	ft_printf("Running strategy %s with bench --> %d using"
-		" the following stacks\n",
-		strategy, *bench);
-	print_stack("Stack A: ", stack_a);
-	print_stack("Stack B: ", stack_b);
+	if (ft_strncmp(strategy, "--simple", 8) == 0)
+		selection_sorting(stack_a, stack_b);
 }
