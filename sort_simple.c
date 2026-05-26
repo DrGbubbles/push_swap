@@ -6,19 +6,32 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 22:11:12 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/26 18:58:24 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/26 19:43:00 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
+
+static int	is_sorted(t_list *lst)
+{
+	t_list	*tmp;
+	
+	tmp = lst;
+	while (tmp->next)
+	{
+		if (*(int *)tmp->content > *(int *)tmp->next->content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
 
 static int	find_min(t_list *lst)
 {
 	t_list *tmp;
 	int	min;
 
-	min = INT_MAX;
+	min = *(int *)lst->content;
 	tmp = lst;
 	while (tmp)
 	{
@@ -56,6 +69,8 @@ void	selection_sorting(t_stack *stack_a, t_stack *stack_b)
 	i = 0;
 	lst_size = ft_lstsize(stack_a->head);
 	current_min = find_min(stack_a->head);
+	if (is_sorted(stack_a->head))
+		return ;
 	while (i != lst_size)
 	{
 		if (*(int *)stack_a->head->content == current_min)
@@ -63,11 +78,12 @@ void	selection_sorting(t_stack *stack_a, t_stack *stack_b)
 			pb(stack_a, stack_b);
 			current_min = find_min(stack_a->head);
 			i++;
+			lst_size--;
 		}
 		else
 		{
 			min_pos = find_min_pos(stack_a->head, current_min);
-			if (min_pos > ft_lstsize(stack_a->head) / 2)
+			if (min_pos > lst_size / 2)
 				rra(stack_a);
 			else
 				ra(stack_a);
@@ -76,6 +92,3 @@ void	selection_sorting(t_stack *stack_a, t_stack *stack_b)
 	while(stack_b->head)
 		pa(stack_a, stack_b);
 }
-
-
-
