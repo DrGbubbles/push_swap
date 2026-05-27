@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 22:11:12 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/26 19:47:22 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/27 11:01:11 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	is_sorted(t_list *lst)
 {
 	t_list	*tmp;
-	
+
 	tmp = lst;
 	while (tmp->next)
 	{
@@ -28,8 +28,8 @@ static int	is_sorted(t_list *lst)
 
 static int	find_min(t_list *lst)
 {
-	t_list *tmp;
-	int	min;
+	int						min;
+	t_list					*tmp;
 
 	min = *(int *)lst->content;
 	tmp = lst;
@@ -44,8 +44,8 @@ static int	find_min(t_list *lst)
 
 static int	find_min_pos(t_list *lst, int min_num)
 {
-	t_list *tmp;
-	int i;
+	t_list				*tmp;
+	int					i;
 
 	tmp = lst;
 	i = 0;
@@ -61,11 +61,11 @@ static int	find_min_pos(t_list *lst, int min_num)
 
 void    selection_sorting(t_stack *stack_a, t_stack *stack_b)
 {
-	int current_min;
-	int i;
-	int original_size;
-	int current_size;
-	int min_pos;
+	int	current_min;
+	int	i;
+	int	original_size;
+	int	current_size;
+	int	min_pos;
 
 	if (is_sorted(stack_a->head))
 		return ;
@@ -74,7 +74,6 @@ void    selection_sorting(t_stack *stack_a, t_stack *stack_b)
 	original_size = ft_lstsize(stack_a->head);
 	current_size = original_size;
 	current_min = find_min(stack_a->head);
-	
 	while (i < original_size)
 	{
 		if (*(int *)stack_a->head->content == current_min)
@@ -94,7 +93,6 @@ void    selection_sorting(t_stack *stack_a, t_stack *stack_b)
 				ra(stack_a);
 		}
 	}
-	
-	while(stack_b->head)
+	while (stack_b->head)
 		pa(stack_a, stack_b);
 }

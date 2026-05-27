@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:17:27 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/26 18:46:20 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/27 10:54:52 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,9 @@ void	run_strategy(char *strategy, int *bench,
 		t_stack *stack_a, t_stack *stack_b)
 {
 	if (ft_strncmp(strategy, "--simple", 8) == 0)
+		selection_sorting(stack_a, stack_b);
+	else if (ft_strncmp(strategy, "--medium", 8) == 0)
+		selection_sorting(stack_a, stack_b);
+	else if (ft_strncmp(strategy, "--complex", 9) == 0)
 		selection_sorting(stack_a, stack_b);
 }

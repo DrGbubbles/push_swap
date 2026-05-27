@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 16:26:44 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/26 18:45:22 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/27 11:02:04 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	pa(t_stack *a, t_stack *b);
  */
 void	rra(t_stack	*stack);
 /**
- * Shift down all elements of stack b by one
+ * Shift down all elements of stack b by one, last -> first
  */
 void	rrb(t_stack	*stack);
 /**
- * Shift down all elements of stack a and b by one
+ * Shift down all elements of stack a and b by one, last -> first
  */
 void	rrr(t_stack *a, t_stack *b);
 /**
@@ -57,11 +57,11 @@ void	rrr(t_stack *a, t_stack *b);
  */
 void	ra(t_stack	*stack);
 /**
- *  Shift up all elements of stack b by one
+ *  Shift up all elements of stack b by one, first -> last
  */
 void	rb(t_stack	*stack);
 /**
- *  Shift up all elements of stack a and b by one
+ *  Shift up all elements of stack a and b by one, first -> last
  */
 void	rr(t_stack *a, t_stack *b);
 void	print_stack(char *stack_name, t_stack *stack);
