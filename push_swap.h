@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 16:26:44 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/27 11:02:04 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/28 23:09:16 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,15 @@ void	print_stack(char *stack_name, t_stack *stack);
 void	sort_simple(t_stack *a, t_stack *b);
 t_stack	*init_stack(void);
 int		error_exit(t_stack *a, t_stack *b);
+int		process_number(char *arg, t_stack *a);
 void	cleanup(t_stack *a, t_stack *b);
-int		parse_input(char **argv, int i, t_stack *a, t_stack *b);
+int		parse_input(char **argv, int i, t_stack *a);
 void	run_strategy(char *strategy, int *bench,
 			t_stack *stack_a, t_stack *stack_b);
-char	*strategy_parser(char **argv, int *bench, int *start);
+char	*strategy_parser(char **argv, int *bench, int argc);
 void	selection_sorting(t_stack *stack_a, t_stack *stack_b);
+long	ft_atol(const char *str);
+void	ft_new_node(t_stack *list, int *ptr);
+int		catch_duplicate(t_stack *list, int value);
+int		is_valid_int(char *str);
 #endif

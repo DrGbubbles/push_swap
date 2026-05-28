@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:17:27 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/27 10:54:52 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/28 22:58:57 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,13 @@ void	print_stack(char *stack_name, t_stack *stack)
 void	run_strategy(char *strategy, int *bench,
 		t_stack *stack_a, t_stack *stack_b)
 {
+	if (*bench)
+		ft_printf("starting sorting algorithm with bench active\n");
 	if (ft_strncmp(strategy, "--simple", 8) == 0)
 		selection_sorting(stack_a, stack_b);
 	else if (ft_strncmp(strategy, "--medium", 8) == 0)
-		selection_sorting(stack_a, stack_b);
+		ft_printf("medium not yet implemented !\n");
 	else if (ft_strncmp(strategy, "--complex", 9) == 0)
-		selection_sorting(stack_a, stack_b);
+		ft_printf("complex not yet implemented !\n");
+
 }
