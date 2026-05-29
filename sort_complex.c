@@ -81,6 +81,8 @@ void	merge_sort(t_stack *stack_a, t_stack *stack_b)
 			print_stack("Stack A: ", stack_a);
 			print_stack("Stack B: ", stack_b);
 		}
+		while (pos++ < n)
+			ra(stack_a);
 		l = 2 * l;
 		pos = 0;
 	}
