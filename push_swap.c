@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:17:53 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/28 23:09:53 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/28 23:20:11 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ long	ft_atol(const char *str)
 
 int	main(int argc, char **argv)
 {
-	int			i;
 	int			bench;
 	t_stack		*stack_a;
 	t_stack		*stack_b;
@@ -76,8 +75,6 @@ int	main(int argc, char **argv)
 	strategy = strategy_parser(argv, &bench, argc);
 	if (!strategy)
 		return (error_exit(stack_a, stack_b));
-	if (i >= argc)
-		return (0);
 	if (!parse_input(argv, 1, stack_a))
 		return (error_exit(stack_a, stack_b));
 	run_strategy(strategy, &bench, stack_a, stack_b);
