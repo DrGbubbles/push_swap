@@ -71,15 +71,9 @@ void	merge_sort(t_stack *stack_a, t_stack *stack_b)
 	{
 		while (pos < n - l)
 		{
-			ft_printf("pushing %i elements to b", l);
 			ft_push_n_stack(stack_a, stack_b, l);
-			print_stack("Stack A: ", stack_a);
-			print_stack("Stack B: ", stack_b);
-			ft_printf("merging %i elements to a", l);
 			ft_merge_stack(stack_a, stack_b, ft_min(l, n - pos - l));
 			pos += l + ft_min(l, n - pos - l);
-			print_stack("Stack A: ", stack_a);
-			print_stack("Stack B: ", stack_b);
 		}
 		while (pos++ < n)
 			ra(stack_a);
