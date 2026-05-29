@@ -64,6 +64,6 @@ void	run_strategy(char *strategy, int *bench,
 	else if (ft_strncmp(strategy, "--medium", 8) == 0)
 		ft_printf("medium not yet implemented !\n");
 	else if (ft_strncmp(strategy, "--complex", 9) == 0)
-		ft_printf("complex not yet implemented !\n");
+		merge_sort(stack_a,stack_b);
 
 }
