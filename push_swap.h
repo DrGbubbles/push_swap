@@ -79,4 +79,9 @@ long	ft_atol(const char *str);
 void	ft_new_node(t_stack *list, int *ptr);
 int		catch_duplicate(t_stack *list, int value);
 int		is_valid_int(char *str);
+
+void    pair_sort(t_stack *stack_a, t_stack *stack_b);
+void    merge_sort(t_stack *stack_a, t_stack *stack_b);
+int    ft_lst_is_sorted(t_list *head);
+int    ft_lst_is_rot_sorted(t_stack *stack_a);
 #endif
