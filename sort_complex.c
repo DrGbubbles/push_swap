@@ -27,76 +27,62 @@ int		ft_min(int a, int b)
 	return (a);
 }
 
-void    merge_sort(t_stack *stack_a, t_stack *stack_b)
+void	ft_push_n_stack(t_stack *stack_a, t_stack *stack_b, int n)
 {
-	//This algorithm sorts a list A pairwise, meaning that each block of 2 will be sorted.
+	while (n > 0)
+	{
+		pb(stack_a, stack_b);
+		rb(stack_b);
+		n--;
+	}
+	return ;
+}
+
+void	ft_merge_stack(t_stack *stack_a, t_stack *stack_b, int n_a)
+{
+	while (stack_b->head)
+	{
+		if (n_a == 0 || (*(int *)stack_b->head->content < *(int *)stack_a->head->content))
+		{
+			pa(stack_a, stack_b);
+			ra(stack_a);
+		}
+		else
+		{
+			ra(stack_a);
+			n_a--;
+		}
+	}
+	while (n_a-- > 0)
+		ra(stack_a);
+	
+}
+
+void	merge_sort(t_stack *stack_a, t_stack *stack_b)
+{
 	int		l;
 	int		pos;
-	int		n = ft_lstsize(stack_a->head);
-	int		i;
-	int		j;
+	int		n;
 
 	l = 1;
 	pos = 0;
-	while(l < n)
+	n = ft_lstsize(stack_a->head);
+	while (l < n)
 	{
-		ft_printf("merging to a in pairs of %i\n ", 2 * l);
-		if(l == 1)
-			pair_sort(stack_a, stack_b);
-		if (l > 1)
-			return ;
-		while (pos <= n - l && (l > 1))
+		while (pos < n - l)
 		{
-			i = 0;
-			ft_printf("pushing %i to b:\n", l);
-			while (i++ < ft_min(l, n - pos))
-			{
-				pb(stack_a, stack_b);
-				rb(stack_b);
-			}
-			int stop = 0;
-			i = 0;
-			while (stack_b->head)
-			{
-				if (pos % ft_lstsize(stack_a->head) == 0 && *(int *)stack_b->head->content - *(int *)stack_a->tail->content > 0)
-				{
-					while(stack_b->head)
-					{
-						pa(stack_a, stack_b);
-						ra(stack_a);
-					}
-					return ;
-				}
-				if ( *(int *)stack_a->head->content - *(int *)stack_b->head->content > 0 || i >= l)
-					pa(stack_a, stack_b);
-				pos++;
-				ra(stack_a);
-				i++;
-			}
-			while (i < 2 * l)
-			{
-				ra(stack_a);
-				i++;
-			}
-			j = ft_lst_is_rot_sorted(stack_a);
-			ft_printf("the list is rot sorted: %i \n", j);
-			while(j > 0)
-			{
-					ra(stack_a);
-					j--;
-			}
-			if (j == 0)
-				return ;
+			ft_printf("pushing %i elements to b", l);
+			ft_push_n_stack(stack_a, stack_b, l);
+			print_stack("Stack A: ", stack_a);
+			print_stack("Stack B: ", stack_b);
+			ft_printf("merging %i elements to a", l);
+			ft_merge_stack(stack_a, stack_b, ft_min(l, n - pos - l));
+			pos += l + ft_min(l, n - pos - l);
+			print_stack("Stack A: ", stack_a);
+			print_stack("Stack B: ", stack_b);
 		}
-		pos = 0;
 		l = 2 * l;
-		print_stack("Stack A: ", stack_a);
-		print_stack("Stack B: ", stack_b);
-		if (ft_lst_is_sorted(stack_a->head))
-		{
-			ft_printf("List is sorted!\n");
-			return ;
-		}
+		pos = 0;
 	}
 }
 
