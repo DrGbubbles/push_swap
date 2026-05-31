@@ -1,4 +1,6 @@
 NAME = push_swap
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 SRCS = push_swap.c \
