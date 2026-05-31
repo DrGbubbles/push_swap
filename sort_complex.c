@@ -2,8 +2,9 @@
 
 void    pair_sort(t_stack *stack_a, t_stack *stack_b)
 {
+	(void)stack_b;
 	//This algorithm sorts a list A pairwise, meaning that each block of 2 will be sorted.
-	int		l;
+	//int		l;
 	int		pos;
 	int		n = ft_lstsize(stack_a->head);
 
