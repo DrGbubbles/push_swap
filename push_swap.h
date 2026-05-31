@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 16:26:44 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/28 23:09:16 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/31 21:27:37 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,6 @@ void    pair_sort(t_stack *stack_a, t_stack *stack_b);
 void    merge_sort(t_stack *stack_a, t_stack *stack_b);
 int    ft_lst_is_sorted(t_list *head);
 int    ft_lst_is_rot_sorted(t_stack *stack_a);
+int	find_min(t_list *lst);
+void	bucket_sorting(t_stack *stack_a, t_stack *stack_b);
 #endif

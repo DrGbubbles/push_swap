@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:17:53 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/28 23:20:11 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/31 21:49:38 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,10 @@ int	main(int argc, char **argv)
 		return (error_exit(stack_a, stack_b));
 	if (!parse_input(argv, 1, stack_a))
 		return (error_exit(stack_a, stack_b));
+	//print_stack("stack A Before --> ", stack_a);
 	run_strategy(strategy, &bench, stack_a, stack_b);
-	print_stack("stack A After --> ", stack_a);
+	//print_stack("stack A After --> ", stack_a);
+	//print_stack("stack B After --> ", stack_b);
 	cleanup(stack_a, stack_b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 22:11:12 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/28 23:12:03 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/31 21:27:25 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	is_sorted(t_list *lst)
 	return (1);
 }
 
-static int	find_min(t_list *lst)
+int	find_min(t_list *lst)
 {
 	int						min;
 	t_list					*tmp;

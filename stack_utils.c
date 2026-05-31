@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:17:27 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/28 22:58:57 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/05/31 20:25:25 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	run_strategy(char *strategy, int *bench,
 	if (ft_strncmp(strategy, "--simple", 8) == 0)
 		selection_sorting(stack_a, stack_b);
 	else if (ft_strncmp(strategy, "--medium", 8) == 0)
-		ft_printf("medium not yet implemented !\n");
+		bucket_sorting(stack_a, stack_b);
 	else if (ft_strncmp(strategy, "--complex", 9) == 0)
 		merge_sort(stack_a,stack_b);
 
