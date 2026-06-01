@@ -13,7 +13,8 @@ SRCS = push_swap.c \
 		sort_complex.c \
 		sort_adaptive.c \
 		input_parsing.c \
-		stack_utils.c
+		stack_utils.c \
+		bench.c
 
 OBJS = $(SRCS:.c=.o)
 
