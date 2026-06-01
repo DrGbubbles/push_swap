@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 14:56:05 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/21 16:51:54 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 17:51:10 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static void	num_handler(va_list args, char c, int *count)
 		hex_handler(va_arg(args, unsigned int), c, count);
 	else if (c == 'p')
 		ptr_handler(va_arg(args, uintptr_t), count);
+	else if (c == 'f' || c == '.')
+		float_handler(va_arg(args, uintptr_t), count);
 }
 
 int	ft_printf(const char *s, ...)

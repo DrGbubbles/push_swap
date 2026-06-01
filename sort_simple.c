@@ -6,13 +6,13 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 22:11:12 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/31 21:27:25 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 17:26:07 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_sorted(t_list *lst)
+int	is_sorted(t_list *lst)
 {
 	t_list	*tmp;
 

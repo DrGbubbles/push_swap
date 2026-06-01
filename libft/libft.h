@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 13:39:56 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/25 14:25:39 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 18:01:59 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+void    float_handler(uintptr_t value, int *count);
 unsigned long	ft_strlen(const char *s);
 int				ft_printf(const char *s, ...);
 int				ft_putnbr_base(uintptr_t nb, char *base);
