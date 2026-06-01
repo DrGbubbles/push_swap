@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    pair_sort(t_stack *stack_a, t_stack *stack_b)
+void    pair_sort(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 {
 	(void)stack_b;
 	//This algorithm sorts a list A pairwise, meaning that each block of 2 will be sorted.
@@ -12,11 +12,11 @@ void    pair_sort(t_stack *stack_a, t_stack *stack_b)
 	while (pos < n)
 	{
 		if (pos < n - 1 && *(int *)stack_a->head->content > *(int *)stack_a->head->next->content)
-			sa(stack_a);
-		ra(stack_a);
+			sa(stack_a, bench);
+		ra(stack_a, bench);
 		pos++;
 		if (pos < n)
-			ra(stack_a);
+			ra(stack_a, bench);
 		pos++;
 	}
 }
@@ -28,38 +28,38 @@ int		ft_min(int a, int b)
 	return (a);
 }
 
-void	ft_push_n_stack(t_stack *stack_a, t_stack *stack_b, int n)
+void	ft_push_n_stack(t_stack *stack_a, t_stack *stack_b, int n, t_bench *bench)
 {
 	while (n > 0)
 	{
-		pb(stack_a, stack_b);
-		rb(stack_b);
+		pb(stack_a, stack_b, bench);
+		rb(stack_b, bench);
 		n--;
 	}
 	return ;
 }
 
-void	ft_merge_stack(t_stack *stack_a, t_stack *stack_b, int n_a)
+void	ft_merge_stack(t_stack *stack_a, t_stack *stack_b, int n_a, t_bench *bench)
 {
 	while (stack_b->head)
 	{
 		if (n_a == 0 || (*(int *)stack_b->head->content < *(int *)stack_a->head->content))
 		{
-			pa(stack_a, stack_b);
-			ra(stack_a);
+			pa(stack_a, stack_b, bench);
+			ra(stack_a, bench);
 		}
 		else
 		{
-			ra(stack_a);
+			ra(stack_a, bench);
 			n_a--;
 		}
 	}
 	while (n_a-- > 0)
-		ra(stack_a);
+		ra(stack_a, bench);
 	
 }
 
-void	merge_sort(t_stack *stack_a, t_stack *stack_b)
+void	merge_sort(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 {
 	int		l;
 	int		pos;
@@ -72,12 +72,12 @@ void	merge_sort(t_stack *stack_a, t_stack *stack_b)
 	{
 		while (pos < n - l)
 		{
-			ft_push_n_stack(stack_a, stack_b, l);
-			ft_merge_stack(stack_a, stack_b, ft_min(l, n - pos - l));
+			ft_push_n_stack(stack_a, stack_b, l, bench);
+			ft_merge_stack(stack_a, stack_b, ft_min(l, n - pos - l), bench);
 			pos += l + ft_min(l, n - pos - l);
 		}
 		while (pos++ < n)
-			ra(stack_a);
+			ra(stack_a, bench);
 		l = 2 * l;
 		pos = 0;
 	}

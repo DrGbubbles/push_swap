@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:18:36 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/25 14:18:37 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 22:11:24 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,39 @@ static void	swap(t_stack *stack)
 	stack->head = second;
 }
 
-void	sa(t_stack *stack)
+void	sa(t_stack *stack, t_bench *bench)
 {
 	swap(stack);
-	ft_printf("sa\n");
+	if (bench)
+	{
+		bench->sa++;
+		bench->total++;
+	}
+	if (bench->show_ops)
+		ft_printf("sa\n");
 }
 
-void	sb(t_stack *stack)
+void	sb(t_stack *stack, t_bench *bench)
 {
 	swap(stack);
-	ft_printf("sb\n");
+	if (bench)
+	{
+		bench->sb++;
+		bench->total++;
+	}
+	if (bench->show_ops)
+		ft_printf("sb\n");
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, t_bench *bench)
 {
 	swap(a);
 	swap(b);
-	ft_printf("ss\n");
+	if (bench)
+	{
+		bench->ss++;
+		bench->total++;
+	}
+	if (bench->show_ops)
+		ft_printf("ss\n");
 }

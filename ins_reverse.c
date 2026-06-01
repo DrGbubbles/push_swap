@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:18:24 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/25 14:18:26 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 22:09:36 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,39 @@ static void	reverse(t_stack *stack)
 	stack->tail = current;
 }
 
-void	rra(t_stack *a)
+void	rra(t_stack *a, t_bench *bench)
 {
 	reverse(a);
-	ft_printf("rra\n");
+	if (bench)
+	{
+		bench->rra++;
+		bench->total++;
+	}
+	if (bench->show_ops)
+		ft_printf("rra\n");
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_stack *b, t_bench *bench)
 {
 	reverse(b);
-	ft_printf("rrb\n");
+	if (bench)
+	{
+		bench->rrb++;
+		bench->total++;
+	}
+	if (bench->show_ops)
+		ft_printf("rrb\n");
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b, t_bench *bench)
 {
 	reverse(a);
 	reverse(b);
-	ft_printf("rrr\n");
+	if (bench)
+	{
+		bench->rrr++;
+		bench->total++;
+	}
+	if (bench->show_ops)
+		ft_printf("rrr\n");
 }

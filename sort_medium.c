@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 23:31:12 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/31 22:04:29 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 23:15:56 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static int	find_max_pos(t_list *lst, int max_num)
 	return (-1);
 }
 
-static	int find_max(t_stack *stack_a)
+static	int	find_max(t_stack *stack_a)
 {
 	int	max;
-	t_list *tmp;
-	
+	t_list	*tmp;
+
 	max = *(int *)stack_a->head->content;
 	tmp = stack_a->head;
 	while (tmp)
@@ -47,7 +47,7 @@ static	int find_max(t_stack *stack_a)
 	return (max);
 }
 
-static	int get_chunks_num(t_stack *stack_a)
+static	int	get_chunks_num(t_stack *stack_a)
 {
 	int	i;
 	int	lst_size;
@@ -59,11 +59,11 @@ static	int get_chunks_num(t_stack *stack_a)
 	return (i);
 }
 
-static void push_chunk(t_stack *stack_a, t_stack *stack_b,
-						int lower, int upper)
+static void	push_chunk(t_stack *stack_a, t_stack *stack_b,
+						int lower, int upper, t_bench *bench)
 {
-	int i;
-	int val;
+	int	i;
+	int	val;
 	int	lst_size;
 
 	lst_size = ft_lstsize(stack_a->head);
@@ -74,50 +74,52 @@ static void push_chunk(t_stack *stack_a, t_stack *stack_b,
 			break ;
 		val = *(int *)stack_a->head->content;
 		if (val >= lower && val <= upper)
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, bench);
 		else
-			ra(stack_a);
+			ra(stack_a, bench);
 		i++;
 	}
 }
 
-static void pull_back(t_stack *stack_a, t_stack *stack_b)
+static void	pull_back(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 {
-	int size;
-	int max_pos;
-	int max;
+	int	size;
+	int	max_pos;
+	int	max;
 
 	while (stack_b->head)
 	{
 		max = find_max(stack_b);
 		size = ft_lstsize(stack_b->head);
 		max_pos = find_max_pos(stack_b->head, max);
-		
+
 		if (max_pos <= size / 2)
 		{
 			while (max_pos-- > 0)
-				rb(stack_b);
+				rb(stack_b, bench);
 		}
 		else
 		{
 			while (max_pos < size)
 			{
-				rrb(stack_b);
+				rrb(stack_b, bench);
 				max_pos++;
 			}
 		}
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, bench);
 	}
 }
 
-void	bucket_sorting(t_stack *stack_a, t_stack *stack_b)
+void	bucket_sorting(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 {
 	int	min;
 	int	max;
 	int	num_of_chunks;
 	int	i;
-	int chunk_size;
-	
+	int	chunk_size;
+	int	lower;
+	int	upper;
+
 	i = 0;
 	min = find_min(stack_a->head);
 	max = find_max(stack_a);
@@ -125,10 +127,10 @@ void	bucket_sorting(t_stack *stack_a, t_stack *stack_b)
 	chunk_size = (max - min) / num_of_chunks;
 	while (i < num_of_chunks)
 	{
-		int lower = min + i * chunk_size;
-		int upper = (i == num_of_chunks - 1) ? max : min + (i + 1) * chunk_size;
-		push_chunk(stack_a, stack_b, lower, upper);
+		lower = min + i * chunk_size;
+		upper = (i == num_of_chunks - 1) ? max : min + (i + 1) * chunk_size;
+		push_chunk(stack_a, stack_b, lower, upper, bench);
 		i++;
 	}
-	pull_back(stack_a, stack_b);
+	pull_back(stack_a, stack_b, bench);
 }

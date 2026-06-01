@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 22:11:12 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/01 17:26:07 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 23:13:54 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	find_min_pos(t_list *lst, int min_num)
 	return (-1);
 }
 
-void    selection_sorting(t_stack *stack_a, t_stack *stack_b)
+void    selection_sorting(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 {
 	int	current_min;
 	int	i;
@@ -78,7 +78,7 @@ void    selection_sorting(t_stack *stack_a, t_stack *stack_b)
 	{
 		if (*(int *)stack_a->head->content == current_min)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, bench);
 			if (stack_a->head)
 				current_min = find_min(stack_a->head);
 			i++;
@@ -88,11 +88,11 @@ void    selection_sorting(t_stack *stack_a, t_stack *stack_b)
 		{
 			min_pos = find_min_pos(stack_a->head, current_min);
 			if (min_pos > current_size / 2)
-				rra(stack_a);
+				rra(stack_a, bench);
 			else
-				ra(stack_a);
+				ra(stack_a, bench);
 		}
 	}
 	while (stack_b->head)
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, bench);
 }

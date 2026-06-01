@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/25 14:17:27 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/01 21:54:39 by ktaher           ###   ########.fr       */
+/*   Created: 2026/05/25 14:17:27 by username          #+#    #+#             */
+/*   Updated: 2026/06/01 23:36:46 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,22 @@ void	print_stack(char *stack_name, t_stack *stack)
 	ft_printf("%s", stack_name);
 	while (tmp)
 	{
-		ft_printf("%d --> ", *(int *)tmp->content);
+		ft_printf("%d --> ", *(int *) tmp->content);
 		tmp = tmp->next;
 	}
 	ft_printf("NULL\n");
 }
 
-void	run_strategy(char *strategy, int *bench,
-		t_stack *stack_a, t_stack *stack_b)
+void	run_strategy(char *strategy, t_bench *bench,
+	t_stack	*stack_a, t_stack *stack_b)
 {
+	bench->disorder = calc_disorder(stack_a);
 	if (ft_strncmp(strategy, "simple", 6) == 0)
-		selection_sorting(stack_a, stack_b);
+		selection_sorting(stack_a, stack_b, bench);
 	else if (ft_strncmp(strategy, "medium", 6) == 0)
-		bucket_sorting(stack_a, stack_b);
+		bucket_sorting(stack_a, stack_b, bench);
 	else if (ft_strncmp(strategy, "complex", 7) == 0)
-		merge_sort(stack_a,stack_b);
-	if (*bench)
-		bench_print(stack_a, strategy);
-
+		merge_sort(stack_a, stack_b, bench);
+	if (bench->bench_active)
+		bench_print(strategy, bench);
 }

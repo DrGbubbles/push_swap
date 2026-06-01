@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:18:10 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/01 21:45:10 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 23:22:58 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	is_valid_int(char *str)
 	return (1);
 }
 
-char	*strategy_parser(char **argv, int *bench, int argc)
+char	*strategy_parser(char **argv, t_bench *bench, int argc)
 {
 	char	*strat;
 	int		i;
@@ -78,7 +78,7 @@ char	*strategy_parser(char **argv, int *bench, int argc)
 		else if (ft_strncmp(argv[i], "--adaptive", 10) == 0)
 			strat = ft_strtrim(argv[i], "-");
 		else if (ft_strncmp(argv[i], "--bench", 7) == 0)
-			*bench = 1;
+			bench->bench_active = 1;
 		else if (ft_strncmp(argv[i], "--", 2) == 0)
 			return (NULL);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:18:19 by ktaher            #+#    #+#             */
-/*   Updated: 2026/05/25 14:18:20 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 22:08:35 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,26 @@ static void	push(t_stack *stack_A, t_stack *stack_B)
 		stack_B->tail = node;
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b, t_bench *bench)
 {
 	push(a, b);
-	ft_printf("pb\n");
+	if (bench)
+	{
+		bench->pb++;
+		bench->total++;
+	}
+	if (bench->show_ops)
+		ft_printf("pb\n");
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, t_bench *bench)
 {
 	push(b, a);
-	ft_printf("pa\n");
+	if (bench)
+	{
+		bench->pb++;
+		bench->total++;
+	}
+	if (bench->show_ops)
+		ft_printf("pa\n");
 }
