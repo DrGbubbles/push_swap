@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:17:27 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/01 15:27:47 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 21:54:39 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ void	print_stack(char *stack_name, t_stack *stack)
 void	run_strategy(char *strategy, int *bench,
 		t_stack *stack_a, t_stack *stack_b)
 {
-	if (*bench)
-		bench_print(stack_a);
-	if (ft_strncmp(strategy, "--simple", 8) == 0)
+	if (ft_strncmp(strategy, "simple", 6) == 0)
 		selection_sorting(stack_a, stack_b);
-	else if (ft_strncmp(strategy, "--medium", 8) == 0)
+	else if (ft_strncmp(strategy, "medium", 6) == 0)
 		bucket_sorting(stack_a, stack_b);
-	else if (ft_strncmp(strategy, "--complex", 9) == 0)
+	else if (ft_strncmp(strategy, "complex", 7) == 0)
 		merge_sort(stack_a,stack_b);
+	if (*bench)
+		bench_print(stack_a, strategy);
 
 }

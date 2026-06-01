@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 16:26:44 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/01 17:23:41 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 21:35:56 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,6 @@ int    ft_lst_is_sorted(t_list *head);
 int    ft_lst_is_rot_sorted(t_stack *stack_a);
 int	find_min(t_list *lst);
 void	bucket_sorting(t_stack *stack_a, t_stack *stack_b);
-void    bench_print(t_stack *stack_a);
+void    bench_print(t_stack *stack_a, char *strat);
 int	is_sorted(t_list *lst);
 #endif
