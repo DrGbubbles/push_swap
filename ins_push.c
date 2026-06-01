@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:18:19 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/01 22:08:35 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/01 23:43:00 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	pa(t_stack *a, t_stack *b, t_bench *bench)
 	push(b, a);
 	if (bench)
 	{
-		bench->pb++;
+		bench->pa++;
 		bench->total++;
 	}
 	if (bench->show_ops)
