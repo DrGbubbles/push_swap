@@ -34,6 +34,9 @@ fclean: clean
 	rm -f $(NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
+bonus: $(OBJS)
+	cc -Wall -Wextra -Werror $(OBJS) checker.c -L./libft -lft -o checker
+
 
 re: fclean all
 
