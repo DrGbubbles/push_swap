@@ -6,7 +6,7 @@
 /*   By: gbliard <gbliard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 12:17:09 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 14:42:55 by gbliard          ###   ########.fr       */
+/*   Updated: 2026/06/02 14:44:44 by gbliard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_sort_adaptive(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 
 	disorder = ft_compute_disorder(stack_a);
 	len_list = ft_lstsize(stack_a->head);
-	//ft_printf("The length of the list is %i", len_list);
 	if (len_list == 2)
 		ft_two_sort(stack_a, bench);
 	else if (len_list == 3)
@@ -62,7 +61,6 @@ int	ft_compute_disorder(t_stack *stack_a)
 
 void	ft_two_sort(t_stack *stack_a, t_bench *bench)
 {
-	//ft_printf("The length of the list is %i", len_list)
 	if (*(int *)stack_a->tail->content < *(int *)stack_a->head->content)
 		sa(stack_a, bench);
 	return ;
@@ -82,7 +80,7 @@ void	ft_three_sort(t_stack *stack_a, t_bench *bench)
 	return ;
 }
 
-int ft_max_pos_1(t_stack *stack_a)
+int	ft_max_pos_1(t_stack *stack_a)
 {
 	int		max;
 	t_list	*head;
