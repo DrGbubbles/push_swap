@@ -19,6 +19,7 @@ SRCS =	ins_swap.c \
 OBJS = $(SRCS:.c=.o)
 
 MANDATORY = push_swap.c
+MANDATORY_OBJ = push_swap.o
 
 all: $(NAME)
 
@@ -30,6 +31,7 @@ $(NAME): $(OBJS) $(LIBFT) $(MANDATORY)
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(MANDATORY_OBJ)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
