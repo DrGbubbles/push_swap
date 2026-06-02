@@ -6,13 +6,13 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 09:03:12 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 14:59:24 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 22:43:35 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sorter(char *operation, t_stack *stack_a, t_stack *stack_b, 
+void	ft_sorter(char *operation, t_stack *stack_a, t_stack *stack_b,
 			t_bench *bench);
 
 void	read_ops(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
@@ -28,7 +28,7 @@ void	read_ops(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 	}
 }
 
-void	ft_sorter(char *operation, t_stack *stack_a, t_stack *stack_b, 
+void	ft_sorter(char *operation, t_stack *stack_a, t_stack *stack_b,
 			t_bench *bench)
 {
 	if ((ft_strncmp(operation, "sa", 2)) == 0)
