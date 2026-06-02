@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:17:27 by username          #+#    #+#             */
-/*   Updated: 2026/06/01 23:36:46 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 12:25:48 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	run_strategy(char *strategy, t_bench *bench,
 		bucket_sorting(stack_a, stack_b, bench);
 	else if (ft_strncmp(strategy, "complex", 7) == 0)
 		merge_sort(stack_a, stack_b, bench);
+	else
+		ft_sort_adaptive(stack_a, stack_b, bench);
 	if (bench->bench_active)
 		bench_print(strategy, bench);
 }

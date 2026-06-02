@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 14:33:45 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/01 23:36:58 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 12:28:05 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	print_strat(char *strat)
 		ft_putstr_fd(" / O(\u221An)\n", 2);
 	else if (ft_strncmp(strat, "complex", 7) == 0)
 		ft_putstr_fd(" / O(nlog(n))\n", 2);
+	else if (ft_strncmp(strat, "adaptive", 8) == 0)
+		ft_putstr_fd("\n", 2);
 }
 
 void	print_ops(t_bench *bench)

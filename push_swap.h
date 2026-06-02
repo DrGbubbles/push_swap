@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 16:26:44 by username          #+#    #+#             */
-/*   Updated: 2026/06/01 23:36:52 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 12:25:42 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,6 @@ void	bucket_sorting(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
 void	bench_print(char *strat, t_bench *bench);
 int		is_sorted(t_list *lst);
 double	calc_disorder(t_stack *stack_a);
+int	ft_compute_disorder(t_stack *stack_a);
+void	ft_sort_adaptive(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
 #endif
