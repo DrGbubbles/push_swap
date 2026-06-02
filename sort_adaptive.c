@@ -6,7 +6,7 @@
 /*   By: gbliard <gbliard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 12:17:09 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 12:57:16 by gbliard          ###   ########.fr       */
+/*   Updated: 2026/06/02 14:42:55 by gbliard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ void	ft_sort_adaptive(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 
 	disorder = ft_compute_disorder(stack_a);
 	len_list = ft_lstsize(stack_a->head);
-	if (disorder < 0.2 || disorder > 1 - 0.2)
+	//ft_printf("The length of the list is %i", len_list);
+	if (len_list == 2)
+		ft_two_sort(stack_a, bench);
+	else if (len_list == 3)
+		ft_three_sort(stack_a, bench);
+	else if (len_list < 50 || disorder < 0.2 || disorder > 1 - 0.2)
 		selection_sorting(stack_a, stack_b, bench);
 	else if (len_list > 1000)
 		merge_sort(stack_a, stack_b, bench);
@@ -53,4 +58,42 @@ int	ft_compute_disorder(t_stack *stack_a)
 		ptr1 = ptr1->next;
 	}
 	return (10000 * mistakes / total_pairs);
+}
+
+void	ft_two_sort(t_stack *stack_a, t_bench *bench)
+{
+	//ft_printf("The length of the list is %i", len_list)
+	if (*(int *)stack_a->tail->content < *(int *)stack_a->head->content)
+		sa(stack_a, bench);
+	return ;
+}
+
+void	ft_three_sort(t_stack *stack_a, t_bench *bench)
+{
+	if (is_sorted(stack_a->head))
+		return ;
+	else if (ft_max_pos_1(stack_a) == 1)
+		ra(stack_a, bench);
+	else if (*(int *)stack_a->tail->content > *(int *)stack_a->head->content)
+		sa(stack_a, bench);
+	else
+		rra(stack_a, bench);
+	ft_three_sort(stack_a, bench);
+	return ;
+}
+
+int ft_max_pos_1(t_stack *stack_a)
+{
+	int		max;
+	t_list	*head;
+
+	head = stack_a->head;
+	max = *(int *)head->content;
+	while (head != NULL)
+	{
+		if (max < *(int *)head->content)
+			return (0);
+		head = head->next;
+	}
+	return (1);
 }
