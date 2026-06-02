@@ -1,62 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_complex.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbliard <gbliard@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/02 12:44:46 by gbliard           #+#    #+#             */
+/*   Updated: 2026/06/02 12:48:37 by gbliard          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void    pair_sort(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
-{
-	(void)stack_b;
-	//This algorithm sorts a list A pairwise, meaning that each block of 2 will be sorted.
-	//int		l;
-	int		pos;
-	int		n = ft_lstsize(stack_a->head);
-
-	pos = 0;
-	while (pos < n)
-	{
-		if (pos < n - 1 && *(int *)stack_a->head->content > *(int *)stack_a->head->next->content)
-			sa(stack_a, bench);
-		ra(stack_a, bench);
-		pos++;
-		if (pos < n)
-			ra(stack_a, bench);
-		pos++;
-	}
-}
-
-int		ft_min(int a, int b)
-{
-	if (a > b)
-		return (b);
-	return (a);
-}
-
-void	ft_push_n_stack(t_stack *stack_a, t_stack *stack_b, int n, t_bench *bench)
+void	ft_push_n_stack(t_stack *s_a, t_stack *s_b, int n, t_bench *bench)
 {
 	while (n > 0)
 	{
-		pb(stack_a, stack_b, bench);
-		rb(stack_b, bench);
+		pb(s_a, s_b, bench);
+		rb(s_b, bench);
 		n--;
 	}
 	return ;
 }
 
-void	ft_merge_stack(t_stack *stack_a, t_stack *stack_b, int n_a, t_bench *bench)
+void	ft_merge_stack(t_stack *s_a, t_stack *s_b, int n_a, t_bench *bench)
 {
-	while (stack_b->head)
+	int	content_a;
+	int	content_b;
+
+	while (s_b->head)
 	{
-		if (n_a == 0 || (*(int *)stack_b->head->content < *(int *)stack_a->head->content))
+		content_a = *(int *)s_a->head->content;
+		content_b = *(int *)s_b->head->content;
+		if (n_a == 0 || content_b < content_a)
 		{
-			pa(stack_a, stack_b, bench);
-			ra(stack_a, bench);
+			pa(s_a, s_b, bench);
+			ra(s_a, bench);
 		}
 		else
 		{
-			ra(stack_a, bench);
+			ra(s_a, bench);
 			n_a--;
 		}
 	}
 	while (n_a-- > 0)
-		ra(stack_a, bench);
-	
+		ra(s_a, bench);
 }
 
 void	merge_sort(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
@@ -83,28 +71,15 @@ void	merge_sort(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 	}
 }
 
-int    ft_lst_is_sorted(t_list *head)
+int	ft_lst_is_rot_sorted(t_stack *s_a)
 {
-	if (!head)
-		return (0);
-	while (head->next)
-	{
-		if (*(int *)head->content > *(int *)head->next->content)
-			return (0);
-		head = head->next;
-	}
-	return (1);
-}
-
-
-int    ft_lst_is_rot_sorted(t_stack *stack_a)
-{
-	int	i;
-	int		stop = 0;
-	t_list *head;
+	int		i;
+	int		stop;
+	t_list	*head;
 	int		i_out;
 
-	head = stack_a->head;
+	stop = 0;
+	head = s_a->head;
 	i = 0;
 	if (!head)
 		return (0);
@@ -120,13 +95,14 @@ int    ft_lst_is_rot_sorted(t_stack *stack_a)
 	}
 	if (stop == 0)
 		return (0);
-	//ft_printf("The stop condition is %i, the contents are tail: %i, tail %i \n", stop,*(int *)stack_a->tail->content , *(int *)stack_a->head->content);
-	if (stop == 1 && (*(int *)stack_a->tail->content < *(int *)stack_a->head->content))
+	if (stop == 1 && (*(int *)s_a->tail->content < *(int *)s_a->head->content))
 		return (i_out + 1);
 	return (-1);
 }
 
-/*
-run  shuf -i 0-99 -n 10 > args.txt
-./push_swap $(cat args.txt) --complex
-*/
+int	ft_min(int a, int b)
+{
+	if (a > b)
+		return (b);
+	return (a);
+}
