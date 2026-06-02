@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 16:26:44 by username          #+#    #+#             */
-/*   Updated: 2026/06/02 15:12:25 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 22:33:40 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_bench
 	int		show_ops;
 	int		bench_active;
 	double	disorder;
+	char	*strat;
 }	t_bench;
 /**
 * Swap the first two elements at the top of stack a

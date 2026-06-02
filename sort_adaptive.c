@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 12:17:09 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 15:39:01 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 22:37:57 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,30 @@ void	ft_sort_adaptive(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 	disorder = ft_compute_disorder(stack_a);
 	len_list = ft_lstsize(stack_a->head);
 	if (len_list == 2)
+	{
 		ft_two_sort(stack_a, bench);
+		bench->strat = "two_sort";
+	}
 	else if (len_list == 3)
+	{
 		ft_three_sort(stack_a, bench);
+		bench->strat = "three_sort";
+	}
 	else if (disorder < 2000)
+	{
 		selection_sorting(stack_a, stack_b, bench);
+		bench->strat = "simple";
+	}
 	else if (disorder > 5000)
+	{
 		merge_sort(stack_a, stack_b, bench);
+		bench->strat = "complex";
+	}
 	else
+	{
 		bucket_sorting(stack_a, stack_b, bench);
+		bench->strat = "medium";
+	}
 }
 
 int	ft_compute_disorder(t_stack *stack_a)

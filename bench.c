@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 14:33:45 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 14:05:44 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 22:39:30 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	print_disorder(double disorder)
 	ft_putstr_fd(" %\n", 2);
 }
 
-void	print_strat(char *strat)
+void	print_strat(char *strat, t_bench *bench)
 {
 	ft_putstr_fd("[bench] strategy:  ", 2);
 	ft_putstr_fd(strat, 2);
@@ -66,7 +66,15 @@ void	print_strat(char *strat)
 	else if (ft_strncmp(strat, "complex", 7) == 0)
 		ft_putstr_fd(" / O(nlog(n))\n", 2);
 	else if (ft_strncmp(strat, "adaptive", 8) == 0)
+	{
+		if (ft_strncmp(bench->strat, "simple", 6) == 0)
+			ft_putstr_fd(" / O(n\u00B2)", 2);
+		else if (ft_strncmp(bench->strat, "medium", 6) == 0)
+			ft_putstr_fd(" / O(n\u221An)", 2);
+		else if (ft_strncmp(bench->strat, "complex", 7) == 0)
+			ft_putstr_fd(" / O(nlog(n))", 2);
 		ft_putstr_fd("\n", 2);
+	}
 }
 
 void	print_ops(t_bench *bench)
@@ -101,7 +109,7 @@ void	print_ops(t_bench *bench)
 void	bench_print(char *strat, t_bench *bench)
 {
 	print_disorder(bench->disorder);
-	print_strat(strat);
+	print_strat(strat, bench);
 	ft_putstr_fd("[bench] total_ops:  ", 2);
 	print_ops(bench);
 }
