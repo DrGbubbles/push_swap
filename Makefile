@@ -3,8 +3,7 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
-SRCS = push_swap.c \
-		ins_swap.c \
+SRCS =	ins_swap.c \
 		ins_push.c \
 		ins_rotate.c \
 		ins_reverse.c \
@@ -14,17 +13,20 @@ SRCS = push_swap.c \
 		sort_adaptive.c \
 		input_parsing.c \
 		stack_utils.c \
-		bench.c
+		bench.c \
+		stack_utils_extended.c
 
 OBJS = $(SRCS:.c=.o)
+
+MANDATORY = push_swap.c
 
 all: $(NAME)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-$(NAME): $(OBJS) $(LIBFT)
-	cc -Wall -Wextra -Werror $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT) $(MANDATORY)
+	cc -Wall -Wextra -Werror $(OBJS) $(MANDATORY) -L$(LIBFT_DIR) -lft -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
