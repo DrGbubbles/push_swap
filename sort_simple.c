@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 22:11:12 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 15:04:01 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 23:28:25 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	is_sorted(t_list *lst)
 	t_list	*tmp;
 
 	tmp = lst;
+	if (!lst)
+		return (1);
 	while (tmp->next)
 	{
 		if (*(int *)tmp->content > *(int *)tmp->next->content)
