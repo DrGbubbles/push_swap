@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 16:26:44 by username          #+#    #+#             */
-/*   Updated: 2026/06/02 15:06:50 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 15:12:25 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,5 @@ int		find_max_pos(t_list *lst, int max_num);
 void	ft_sort_adaptive(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
 void	ft_three_sort(t_stack *stack_a, t_bench *bench);
 void	ft_two_sort(t_stack *stack_a, t_bench *bench);
-int 	ft_max_pos_1(t_stack *stack_a);
+int		ft_max_pos_1(t_stack *stack_a);
 #endif
