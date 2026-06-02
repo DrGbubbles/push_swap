@@ -6,11 +6,23 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 14:17:53 by username          #+#    #+#             */
-/*   Updated: 2026/06/02 23:31:00 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 23:41:45 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	init_all(t_stack **a, t_stack **b, t_bench **bench)
+{
+	*bench = malloc(sizeof(t_bench));
+	if (!*bench)
+		return (0);
+	ft_memset(*bench, 0, sizeof(t_bench));
+	(*bench)->show_ops = 1;
+	*a = init_stack();
+	*b = init_stack();
+	return (1);
+}
 
 int	main(int argc, char **argv)
 {
@@ -21,16 +33,19 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	bench_stack = malloc(sizeof(t_bench));
-	ft_memset(bench_stack, 0, sizeof(t_bench));
-	stack_a = init_stack();
-	stack_b = init_stack();
-	bench_stack->show_ops = 1;
+	if (!init_all(&stack_a, &stack_b, &bench_stack))
+		return (1);
 	strategy = strategy_parser(argv, bench_stack, argc);
 	if (!strategy || !parse_input(argv, 1, stack_a))
 	{
 		free(bench_stack);
 		return (error_exit(stack_a, stack_b));
+	}
+	if (!stack_a->head)
+	{
+		free(bench_stack);
+		cleanup(stack_a, stack_b);
+		return (0);
 	}
 	run_strategy(strategy, bench_stack, stack_a, stack_b);
 	cleanup(stack_a, stack_b);
