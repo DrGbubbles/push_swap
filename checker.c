@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 09:03:12 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 09:22:03 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 13:15:34 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int	main(int argc, char **argv)
 		return (error_exit(stack_a, stack_b));
 	print_stack("Stack A : ", stack_a);
 	print_stack("Stack B : ", stack_b);
-
 	cleanup(stack_a, stack_b);
 	return (0);
 }
-

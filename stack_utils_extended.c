@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 09:15:52 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 09:16:09 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 13:13:21 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,21 @@ long	ft_atol(const char *str)
 		i++;
 	}
 	return (res * sign);
+}
+
+int	find_max_pos(t_list *lst, int max_num)
+{
+	t_list	*tmp;
+	int		i;
+
+	tmp = lst;
+	i = 0;
+	while (tmp)
+	{
+		if (*(int *)tmp->content == max_num)
+			return (i);
+		i++;
+		tmp = tmp->next;
+	}
+	return (-1);
 }
