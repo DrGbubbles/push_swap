@@ -6,7 +6,7 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 14:33:45 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 12:51:52 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 14:05:44 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	print_strat(char *strat)
 	if (ft_strncmp(strat, "simple", 6) == 0)
 		ft_putstr_fd(" / O(n\u00B2)\n", 2);
 	else if (ft_strncmp(strat, "medium", 6) == 0)
-		ft_putstr_fd(" / O(\u221An)\n", 2);
+		ft_putstr_fd(" / O(n\u221An)\n", 2);
 	else if (ft_strncmp(strat, "complex", 7) == 0)
 		ft_putstr_fd(" / O(nlog(n))\n", 2);
 	else if (ft_strncmp(strat, "adaptive", 8) == 0)

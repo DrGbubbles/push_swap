@@ -6,12 +6,15 @@
 /*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 13:39:56 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/01 21:29:50 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 14:09:55 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -25,6 +28,26 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_node
+{
+	char			*content;
+	struct s_node	*next;
+}	t_node;
+
+typedef struct s_list_gnl
+{
+	t_node	*current;
+	t_node	*appender;
+}	t_list_gnl;
+
+char			*get_next_line(int fd);
+void			ft_new_node_gnl(t_list_gnl *list, char *buffer, int bytes_read);
+int				ft_read_to_list(int fd, t_list_gnl *list);
+void			ft_free_list(t_list_gnl *list);
+char			*ft_make_line(t_list_gnl *list);
+void			ft_clean_list(t_list_gnl *list);
+char			*ft_copy_line(t_list_gnl *list, char *line);
+char			*ft_strdup_from(char *src);
 unsigned long	ft_strlen(const char *s);
 int				ft_printf(const char *s, ...);
 int				ft_putnbr_base(uintptr_t nb, char *base);
