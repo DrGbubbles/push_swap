@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_adaptive.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbliard <gbliard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 12:17:09 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 14:44:44 by gbliard          ###   ########.fr       */
+/*   Updated: 2026/06/02 15:39:01 by ktaher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	ft_sort_adaptive(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 		ft_two_sort(stack_a, bench);
 	else if (len_list == 3)
 		ft_three_sort(stack_a, bench);
-	else if (len_list < 50 || disorder < 0.2 || disorder > 1 - 0.2)
+	else if (disorder < 2000)
 		selection_sorting(stack_a, stack_b, bench);
-	else if (len_list > 1000)
+	else if (disorder > 5000)
 		merge_sort(stack_a, stack_b, bench);
 	else
 		bucket_sorting(stack_a, stack_b, bench);
