@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gbliard <gbliard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 16:26:44 by username          #+#    #+#             */
-/*   Updated: 2026/06/02 12:25:42 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/02 13:05:13 by gbliard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int		find_min(t_list *lst);
 void	bucket_sorting(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
 void	bench_print(char *strat, t_bench *bench);
 int		is_sorted(t_list *lst);
+int	ft_min(int a, int b);
 double	calc_disorder(t_stack *stack_a);
 int	ft_compute_disorder(t_stack *stack_a);
 void	ft_sort_adaptive(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
