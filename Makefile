@@ -39,7 +39,7 @@ fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 bonus: $(OBJS)
-	cc -Wall -Wextra -Werror $(OBJS) checker.c -L./libft -lft -o checker
+	cc -Wall -Wextra -Werror $(OBJS) checker_bonus.c -L./libft -lft -o checker
 
 
 re: fclean all
