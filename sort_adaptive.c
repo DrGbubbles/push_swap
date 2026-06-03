@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_adaptive.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktaher <ktaher@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gbliard <gbliard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 12:17:09 by ktaher            #+#    #+#             */
-/*   Updated: 2026/06/02 22:44:08 by ktaher           ###   ########.fr       */
+/*   Updated: 2026/06/03 15:15:46 by gbliard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_sort_adaptive(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 	}
 	else if (disorder > 5000)
 	{
-		merge_sort(stack_a, stack_b, bench);
+		ft_radix_sort(stack_a, stack_b, bench);
 		bench->strat = "complex";
 	}
 	else
@@ -42,8 +42,8 @@ void	ft_sort_adaptive(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 
 int	ft_compute_disorder(t_stack *stack_a)
 {
-	int		mistakes;
-	int		total_pairs;
+	long	mistakes;
+	long	total_pairs;
 	t_list	*ptr1;
 	t_list	*ptr2;
 
@@ -65,7 +65,7 @@ int	ft_compute_disorder(t_stack *stack_a)
 		}
 		ptr1 = ptr1->next;
 	}
-	return (10000 * mistakes / total_pairs);
+	return ((int)((long)10000 * mistakes / total_pairs));
 }
 
 void	ft_two_sort(t_stack *stack_a, t_bench *bench)
