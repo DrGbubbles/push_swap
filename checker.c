@@ -31,27 +31,27 @@ void	read_ops(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 void	ft_sorter(char *operation, t_stack *stack_a, t_stack *stack_b,
 			t_bench *bench)
 {
-	if ((ft_strncmp(operation, "sa", 2)) == 0)
+	if ((ft_strncmp(operation, "sa", 3)) == 0)
 		sa(stack_a, bench);
-	else if ((ft_strncmp(operation, "sb", 2)) == 0)
+	else if ((ft_strncmp(operation, "sb", 3)) == 0)
 		sb(stack_b, bench);
-	else if ((ft_strncmp(operation, "ss", 2)) == 0)
+	else if ((ft_strncmp(operation, "ss", 3)) == 0)
 		ss(stack_a, stack_b, bench);
-	else if ((ft_strncmp(operation, "ra", 2)) == 0)
+	else if ((ft_strncmp(operation, "ra", 3)) == 0)
 		ra(stack_a, bench);
-	else if ((ft_strncmp(operation, "rb", 2)) == 0)
+	else if ((ft_strncmp(operation, "rb", 3)) == 0)
 		rb(stack_b, bench);
 	else if ((ft_strncmp(operation, "rr", 3)) == 0)
 		rr(stack_a, stack_b, bench);
-	else if ((ft_strncmp(operation, "pa", 2)) == 0)
+	else if ((ft_strncmp(operation, "pa", 3)) == 0)
 		pa(stack_a, stack_b, bench);
-	else if ((ft_strncmp(operation, "pb", 2)) == 0)
+	else if ((ft_strncmp(operation, "pb", 3)) == 0)
 		pb(stack_a, stack_b, bench);
-	else if ((ft_strncmp(operation, "rra", 3)) == 0)
+	else if ((ft_strncmp(operation, "rra", 4)) == 0)
 		rra(stack_a, bench);
-	else if ((ft_strncmp(operation, "rrb", 3)) == 0)
+	else if ((ft_strncmp(operation, "rrb", 4)) == 0)
 		rrb(stack_b, bench);
-	else if ((ft_strncmp(operation, "rrr", 3)) == 0)
+	else if ((ft_strncmp(operation, "rrr", 4)) == 0)
 		rrr(stack_a, stack_b, bench);
 }
 
